@@ -1,0 +1,17 @@
+\section{My Experiences with HTTP/2}
+
+\textit{Note 5,000 word draft: I am a little unsure what to do with this section. It currently exists as sort of a miscellaneous collection of my thoughts, but it would also be possible for me to remove this entirely. Considering the marking criteria, I think it would be a good idea for me to focus on my own work more in some way, otherwise I only really have the page load time results and demonstration to show for my work. I am aware that it does deviate from the `scholarly' tone somewhat.} 
+
+In this section I will briefly talk about some of my experiences and observations from writing a HTTP/2 server and what it means for the protocol as a whole.
+
+First of all the specification~\cite{h2} is well-written and almost entirely self contained, which is a major benefit to anyone who finds themselves writing an implementation of the protocol. There is only 1 verified erratum~\cite{h2-errata}, which is a single typographic error.
+
+Secondly, I found that most client side implementations I interacted with were robust. Most of them sent back useful error messages when I was doing something incorrectly and any issues I encountered never persisted longer than about a day of debugging due to this.
+
+Most devices I tested my server on all interacted in the same manner, which is again a good thing. One of the problems with HTTP/1.1 is that there is such a wide range of behaviour across clients which means that in some cases you need to go against the specification in order to achieve interoperability - so having all implementations on the same page from the start is a benefit, and I only found one edge case where I decided to not follow the specification for my own convenience. I noticed that the school computers either blocked entirely or didn't support HTTP/2, which was disappointing, but I suspect this is due to them using a very old version of Google Chrome (pre-2014 at least).
+
+Unfortunately it is quite difficult for me to discuss many of the details of my code or to analyse specific snippets since I chose to program it in C which is quite a low-level language (meaning that simpler tasks can often take many lines of code and involve much error checking). This is partly due to my comfortability with the language but also since I wanted to ensure that the server would run fast enough for me to get meaningful results from - I would not consider it to be a fair test if I was comparing a slow HTTP/2 implementation of mine with a highly optimised HTTP/1.1 implementation, so performance was certainly a goal of mine. I also chose C because I felt like I would learn more about low-level networking if I wrote it in C than if I had written it in a higher level language like Python.
+
+The server (which I have named HH) is currently 2,437 lines of code and the source code can be found online at~\cite{hh}. The majority of the actual code can be found in the \texttt{src} folder.
+
+Overall I am very happy with the project and I would consider it a testament to the success of HTTP/2 that I have been able to create such a server from scratch with minimal prior experience and still demonstrate large performance improvements over highly optimised HTTP/1.1 implementations.

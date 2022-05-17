@@ -1,0 +1,45 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[backend=biber,dateabbrev=true,alldates=long,style=numeric,sorting=none]{biblatex}
+\usepackage{parskip}
+\usepackage{hyphenat}
+\usepackage{hyperref}
+\usepackage{minted}
+\usepackage{pgfplots}
+\usepackage{svg}
+\usepackage[justification=centering]{caption}
+\addbibresource{references.bib}
+
+\title{Is HTTP/2 the future of web browsing?}
+\author{Matt Taylor}
+\date{April 2018}
+
+\begin{document}
+
+\maketitle
+
+\input{abstract}
+
+\tableofcontents
+
+\input{intro}
+
+\input{performance}
+
+\input{changing}
+
+\input{push}
+
+\input{encoding}
+
+\input{security}
+
+\input{alternatives}
+
+\input{hh}
+
+\pagebreak
+
+\printbibliography{}
+
+\end{document}
